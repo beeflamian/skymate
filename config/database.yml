@@ -16,7 +16,7 @@ default: &default
 development:
   <<: *default
   reconnect: false
-  database: airflash_development
+  database: skymate_development
   username: root
   password:
   socket: /tmp/mysql.sock
@@ -26,14 +26,14 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: airflash_test
+  database: skymate_test
   username: root
   password:
   socket: /tmp/mysql.sock
 
 production:
   <<: *default
-  database: airflash_production
-  username: airflash
+  database: skymate_production
+  username: skymate
   password:
   socket: /tmp/mysql.sock
