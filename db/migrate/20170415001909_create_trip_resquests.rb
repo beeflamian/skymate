@@ -1,4 +1,4 @@
-class CreateTripResquest < ActiveRecord::Migration[5.0]
+class CreateTripResquests < ActiveRecord::Migration[5.0]
   def change
     create_table :trip_resquests do |t|
       t.boolean :roundtrip, null: false
@@ -13,6 +13,7 @@ class CreateTripResquest < ActiveRecord::Migration[5.0]
       t.string :priority, null: false
       t.string :statue, null: false
       t.text :note
+      t.timestamps
     end
 
     create_table :itineraries do |t|
@@ -20,6 +21,7 @@ class CreateTripResquest < ActiveRecord::Migration[5.0]
       t.date :departing_date
       t.date :return_date
       t.float :price
+      t.timestamps
     end
 
     create_table :itinerary_details do |t|
@@ -29,6 +31,7 @@ class CreateTripResquest < ActiveRecord::Migration[5.0]
       t.integer :third_flight
       t.integer :fourth_flight
       t.integer :fifth_flight
+      t.timestamps
     end
 
     create_table :flights do |t|
@@ -40,6 +43,7 @@ class CreateTripResquest < ActiveRecord::Migration[5.0]
       t.boolean :wifi
       t.string :power
       t.float :price
+      t.timestamps
     end
 
     create_table :flight_details do |t|
@@ -48,11 +52,13 @@ class CreateTripResquest < ActiveRecord::Migration[5.0]
       t.string :departing_from
       t.string :arriving
       t.string :duration
+      t.timestamps
     end
 
     create_table :flights_flight_details do |t|
       t.belongs_to :flights, index: true
       t.belongs_to :flight_details, index: true
+      t.timestamps
     end
   end
 end
